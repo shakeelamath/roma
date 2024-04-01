@@ -110,18 +110,12 @@
 	    </div>
 	  </nav>
     <!-- END nav -->
-    <div class="hero-wrap">
-      <video autoplay muted loop id="bgVideo">
-          <source src="images/Video1.mp4" type="video/mp4">
-          <source src="images/Video2.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-      </video>
+    <div class="hero-wrap" style="background-image: url('images/bg-12.jpg'), url('images/Video1.mp4'), url('images/bg_3.jpg');" data-current-image="0">
       <div class="overlay"></div>
       <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
               <div class="col-md-6 ftco-animate">
-                <h1 id="hero" class="mb-4" style=" text-shadow: 3px 3px 3px rgba(0,0,0,0.5);">Professional Cleaning Services In Dubai</h1>
-
+                  <h1 class="mb-4">Professional <span>Cleaning</span> <span>Services</span> In Dubai</h1>
                   <p><a href="contact.html" class="btn btn-secondary mr-md-4 py-3 px-4">Learn more <span class="ion-ios-arrow-forward"></span></a></p>
               </div>
           </div>
@@ -130,31 +124,20 @@
   
   <script>
       document.addEventListener("DOMContentLoaded", function() {
-          var currentIndex = 0;
-          var mediaList = [
-              { type: "video", src: "images/Video1.mp4" },
-              { type: "image", src: "url('images/bg-12.jpg')" },
-              { type: "video", src: "images/Video2.mp4" },
-              { type: "image", src: "url('images/bg_3.jpg')" }
+          var currentImageIndex = 0;
+          var images = [
+              "url('images/bg-12.jpg')",
+              "url('images/bg_1.jpg')", // Add the paths to your additional images here
+              "url('images/bg_3.jpg')"
           ];
           var heroWrap = document.querySelector('.hero-wrap');
-          var bgVideo = document.getElementById('bgVideo');
   
-          function changeMedia() {
-              var currentMedia = mediaList[currentIndex];
-              if (currentMedia.type === "video") {
-                  bgVideo.style.display = "block";
-                  heroWrap.style.backgroundImage = "none";
-                  bgVideo.src = currentMedia.src;
-                  bgVideo.play();
-              } else {
-                  bgVideo.style.display = "none";
-                  heroWrap.style.backgroundImage = currentMedia.src;
-              }
-              currentIndex = (currentIndex + 1) % mediaList.length;
+          function changeImage() {
+              currentImageIndex = (currentImageIndex + 1) % images.length;
+              heroWrap.style.backgroundImage = images[currentImageIndex];
           }
   
-          setInterval(changeMedia, 6000); // Change media every 6 seconds (adjust as needed)
+          setInterval(changeImage, 6000); // Change image every 5 seconds (adjust as needed)
       });
   </script>
   
