@@ -64,6 +64,15 @@
     height: auto;
     z-index: -1000;
 }
+
+#hero{
+  font-size: 50px;
+}
+@media screen and (max-width: 768px) {
+        #hero {
+            font-size: 30px !important; /* Adjust as needed */
+        }
+    }
     </style>
   </head>
   <body>
@@ -111,7 +120,7 @@
       <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
               <div class="col-md-6 ftco-animate">
-                <h1 class="mb-4" style="font-size: 55px; text-shadow: 3px 3px 3px rgba(0,0,0,0.5);">Professional Cleaning Services In Dubai</h1>
+                <h1 id="hero" class="mb-4" style=" text-shadow: 3px 3px 3px rgba(0,0,0,0.5);">Professional Cleaning Services In Dubai</h1>
 
                   <p><a href="contact.html" class="btn btn-secondary mr-md-4 py-3 px-4">Learn more <span class="ion-ios-arrow-forward"></span></a></p>
               </div>
