@@ -22,6 +22,49 @@
 
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+  .hero-wrap {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 100vh; /* Adjust as needed */
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+}
+
+.hero-wrap img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fadeIn {
+    opacity: 1;
+}
+#bgVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1000;
+}
+    </style>
   </head>
   <body>
 
@@ -58,17 +101,57 @@
 	    </div>
 	  </nav>
     <!-- END nav -->
-    <div class="hero-wrap" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap">
+      <video autoplay muted loop id="bgVideo">
+          <source src="images/Video1.mp4" type="video/mp4">
+          <source src="images/Video2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
       <div class="overlay"></div>
       <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-          <div class="col-md-6 ftco-animate">
-          	<h1 class="mb-4">Professional <span>Cleaning</span> <span>Services</span> In Dubai</h1>
-            <p><a href="contact.html" class="btn btn-secondary mr-md-4 py-3 px-4">Learn more <span class="ion-ios-arrow-forward"></span></a></p>
+          <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+              <div class="col-md-6 ftco-animate">
+                  <h1 class="mb-4">Professional <span>Cleaning</span> Services In Dubai</h1>
+                  <p><a href="contact.html" class="btn btn-secondary mr-md-4 py-3 px-4">Learn more <span class="ion-ios-arrow-forward"></span></a></p>
+              </div>
           </div>
-        </div>
       </div>
-    </div>
+  </div>
+  
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          var currentIndex = 0;
+          var mediaList = [
+              { type: "video", src: "images/Video1.mp4" },
+              { type: "image", src: "url('images/bg-12.jpg')" },
+              { type: "video", src: "images/Video2.mp4" },
+              { type: "image", src: "url('images/bg_3.jpg')" }
+          ];
+          var heroWrap = document.querySelector('.hero-wrap');
+          var bgVideo = document.getElementById('bgVideo');
+  
+          function changeMedia() {
+              var currentMedia = mediaList[currentIndex];
+              if (currentMedia.type === "video") {
+                  bgVideo.style.display = "block";
+                  heroWrap.style.backgroundImage = "none";
+                  bgVideo.src = currentMedia.src;
+                  bgVideo.play();
+              } else {
+                  bgVideo.style.display = "none";
+                  heroWrap.style.backgroundImage = currentMedia.src;
+              }
+              currentIndex = (currentIndex + 1) % mediaList.length;
+          }
+  
+          setInterval(changeMedia, 4000); // Change media every 6 seconds (adjust as needed)
+      });
+  </script>
+  
+  
+  
+
+  
 
     <section class="ftco-section ftco-no-pt ftco-no-pb">
     	<div class="container">
